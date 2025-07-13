@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(0, 0, 0);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+::placeholder {
+    color: rgb(129, 129, 129);
+    opacity: .5; /* Firefox */
+  }
+  
+::-ms-input-placeholder { /* Edge 12 -18 */
+    color: rgb(129, 129, 129);
+}
+
+h1 {
+    font-weight: 500;
+    color: white;
+    
+}
+
+#carrierName { /* Carrier Identifier */
+    display: none;
+    color: greenyellow;
+    font-weight: bold;
+    font-size: 80px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#carrierName.animate {
+    animation: carrier 0.75s cubic-bezier(0.19, 1, 0.22, 1), glowFade 1.5s ease-out;
+}
+
+#enterToSubmit {
+    color: rgb(192, 192, 192);
+    position: absolute;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#example {
+    color: rgb(153, 153, 153);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    top: 50px; /* reminder to change this to 100 at vw 928px */
+    /* and to 150 at 620px */
+}
+
+.main-container { /*
+    border-width: 2px;
+    border-color: red;
+    border-style: dashed; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    display: flex;
+}
+
+#numberheader {
+    background-color: #000;
+    padding: auto;
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    width: 60px;
+    margin-left: 20px;
+    outline: none;
+    border: none;
+    cursor: text;
+}
+
+@media screen and (max-width: 928px) {
+    #example {
+        top: 100px;
+    }
+
+    #carrierName {
+        font-size: 60px;
+    }
+
+    #carrierName.animate {
+        animation: carrierSmall 0.75s cubic-bezier(0.19, 1, 0.22, 1), glowFade 1.5s ease-out;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    #example {
+        top: 120px;
+    }
+}
+
+@keyframes carrier {
+    0% {
+        font-size: 100px;
+    }
+
+    100% {
+        font-size: 80px;
+    }
+}
+
+@keyframes carrierSmall {
+    0% {
+        font-size: 80px;
+    }
+
+    100% {
+        font-size: 60px;
+    }
+}
+
+@keyframes glowFade {
+    0% {
+        text-shadow: 0 0 10px greenyellow, 0 0 20px greenyellow, 0 0 30px limegreen;
+    }
+    100% {
+        text-shadow: 0 0 0px transparent, 0 0 0px transparent, 0 0 0px transparent;
+    }
+}
